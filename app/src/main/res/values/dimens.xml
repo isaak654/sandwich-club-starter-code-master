@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="top_margin_to_another_label">8dp</dimen>
+    <dimen name="top_margin_to_image">16dp</dimen>
+    <dimen name="image_height">200dp</dimen>
 </resources>

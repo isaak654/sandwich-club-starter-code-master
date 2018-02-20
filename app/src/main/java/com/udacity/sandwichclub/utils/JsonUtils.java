@@ -10,9 +10,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-
+/**
+ * Helper method related to requesting and receiving sandwich data.
+ */
 public class JsonUtils {
 
+    // List of JSON constants
+    public static final String JSON_NAME_KEY = "name";
+    public static final String JSON_MAIN_NAME_KEY = "mainName";
+    public static final String JSON_ALSO_KNOWN_AS_KEY = "alsoKnownAs";
+    public static final String JSON_PLACE_OF_ORIGIN_KEY = "placeOfOrigin";
+    public static final String JSON_DESCRIPTION_KEY = "description";
+    public static final String JSON_IMAGE_KEY = "image";
+    public static final String JSON_INGREDIENTS_KEY = "ingredients";
 
     public static Sandwich parseSandwichJson(String json) {
 
@@ -26,12 +36,12 @@ public class JsonUtils {
             // Create a root JSONObject
             JSONObject jsonRootObject = new JSONObject(json);
             // Get name into a JSONObject
-            JSONObject name = jsonRootObject.optJSONObject("name");
+            JSONObject name = jsonRootObject.optJSONObject(JSON_NAME_KEY);
 
             // Get mainName of sandwich
-            String mainName = name.optString("mainName");
+            String mainName = name.optString(JSON_MAIN_NAME_KEY);
             // Get alsoKnownAs array
-            JSONArray alsoKnownAs = name.optJSONArray("alsoKnownAs");
+            JSONArray alsoKnownAs = name.optJSONArray(JSON_ALSO_KNOWN_AS_KEY);
             // Create a new ArrayList
             ArrayList<String> alsoKnownAsList = new ArrayList<>();
             // Iterate the alsoKnownAs array
@@ -39,14 +49,14 @@ public class JsonUtils {
                 alsoKnownAsList.add(alsoKnownAs.optString(i));
             }
             // Get placeOfOrigin
-            String placeOfOrigin = jsonRootObject.optString("placeOfOrigin");
+            String placeOfOrigin = jsonRootObject.optString(JSON_PLACE_OF_ORIGIN_KEY);
             // Get description
-            String description = jsonRootObject.optString("description");
+            String description = jsonRootObject.optString(JSON_DESCRIPTION_KEY);
             // Get image path
-            String image = jsonRootObject.optString("image");
+            String image = jsonRootObject.optString(JSON_IMAGE_KEY);
 
             // Get ingredients array
-            JSONArray ingredients = jsonRootObject.optJSONArray("ingredients");
+            JSONArray ingredients = jsonRootObject.optJSONArray(JSON_INGREDIENTS_KEY);
             // Create a new ArrayList
             ArrayList<String> ingredientsList = new ArrayList<>();
             // Iterate the alsoKnownAs array
